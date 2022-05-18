@@ -1,3 +1,5 @@
+import { RECEIVE_CURRENCY } from '../actions';
+
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
@@ -5,10 +7,15 @@ const INITIAL_STATE = {
 
 function walletReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-  case 'ALGO AQUI': // mudar isso aqui depois
+  case RECEIVE_CURRENCY:
     return {
       ...state,
-      currencies: [action.currencies], // mudar isso aqui depois
+      currencies: Object.keys(action.currency)
+        .filter((currency) => currency !== 'USDT'),
+    };
+  case 'ALGO AQUI':
+    return {
+      ...state,
       expenses: [action.expenses], // mudar isso aqui depois
     };
   default:
