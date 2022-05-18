@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import Header from '../components/Header';
+import Form from '../components/Form';
 import { fetchCurrencies } from '../actions';
 
 class Wallet extends React.Component {
@@ -17,6 +18,7 @@ class Wallet extends React.Component {
       <div>
         {/* <p>Inseriu o e-mail, né!? :D</p> */ }
         <Header />
+        <Form />
       </div>
     );
     return (
