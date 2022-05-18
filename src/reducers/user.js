@@ -1,4 +1,3 @@
-// Esse reducer será responsável por tratar as informações da pessoa usuária
 import { USER_EMAIL } from '../actions';
 
 const INITIAL_STATE = {
@@ -10,7 +9,7 @@ function userReducer(state = INITIAL_STATE, action) {
   case USER_EMAIL:
     return {
       ...state,
-      email: action.email, // mudar isso aqui depois
+      email: action.email,
     };
   default:
     return state;

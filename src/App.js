@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import rootReducer from './reducers';
 import { Switch, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Wallet from './pages/Wallet';
