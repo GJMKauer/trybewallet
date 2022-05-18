@@ -1,5 +1,5 @@
 export const USER_EMAIL = 'USER_EMAIL';
-export const REQUEST_CURRENCY = 'REQUEST_CURRENCY';
+const REQUEST_CURRENCY = 'REQUEST_CURRENCY';
 export const RECEIVE_CURRENCY = 'RECEIVE_CURRENCY';
 
 export const userEmailAction = (email) => ({
@@ -20,8 +20,8 @@ export function fetchCurrencies() {
   const FETCH_URL = 'https://economia.awesomeapi.com.br/json/all';
   return async (dispatch) => {
     dispatch(requestCurrency());
-    return fetch(FETCH_URL)
-      .then((response) => response.json())
-      .then((currency) => dispatch(receiveCurrency(currency)));
+    const response = await fetch(FETCH_URL);
+    const data = await response.json();
+    return dispatch(receiveCurrency(data));
   };
 }
