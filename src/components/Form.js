@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import propTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { fetchExpensesCoin } from '../actions';
+import Table from './Table';
 
 const alimentacao = 'Alimentação';
 
@@ -139,6 +140,7 @@ class Form extends Component {
         >
           Adicionar despesa
         </button>
+        <Table />
       </div>
     );
   }
