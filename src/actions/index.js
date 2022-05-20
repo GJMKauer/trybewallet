@@ -1,6 +1,7 @@
 export const USER_EMAIL = 'USER_EMAIL';
 export const RECEIVE_CURRENCY = 'RECEIVE_CURRENCY';
-export const FINISH_EXPENSE = 'FINISH_EXPENSE';
+export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export const userEmailAction = (email) => ({
   type: USER_EMAIL,
@@ -22,7 +23,7 @@ export function fetchCurrencies() {
 }
 
 const finishExpense = (expenses, currencies) => ({
-  type: FINISH_EXPENSE,
+  type: ADD_EXPENSE,
   expenses,
   currencies,
 });
@@ -35,3 +36,8 @@ export function fetchExpensesCoin(expenses) {
     return dispatch(finishExpense(expenses, data));
   };
 }
+
+export const deleteExpense = (expense) => ({
+  type: DELETE_EXPENSE,
+  expense,
+});
