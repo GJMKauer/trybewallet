@@ -12,8 +12,10 @@ class Table extends React.Component {
 
   removeExpense({ target }) {
     const { expensesState, deleteExpenseDispatch } = this.props;
-    const teste = expensesState.expenses.filter((e) => e.id !== Number(target.id));
-    deleteExpenseDispatch(teste);
+    const filteredExpenses = expensesState.expenses.filter(
+      (e) => e.id !== Number(target.id),
+    );
+    deleteExpenseDispatch(filteredExpenses);
   }
 
   render() {
