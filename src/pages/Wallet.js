@@ -32,7 +32,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  dispatchCurrencyAPI: (currency) => dispatch(fetchCurrencies(currency)),
+  dispatchCurrencyAPI: () => dispatch(fetchCurrencies()),
 });
 
 Wallet.propTypes = {

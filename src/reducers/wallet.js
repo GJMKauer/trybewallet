@@ -13,7 +13,7 @@ function walletReducer(state = INITIAL_STATE, action) {
       currencies: Object.keys(action.currency)
         .filter((currency) => currency !== 'USDT'),
     };
-  case FINISH_EXPENSE: {
+  case FINISH_EXPENSE:
     return {
       ...state,
       expenses: [...state.expenses, {
@@ -21,7 +21,6 @@ function walletReducer(state = INITIAL_STATE, action) {
         exchangeRates: action.currencies },
       ],
     };
-  }
   default:
     return state;
   }
