@@ -16,7 +16,6 @@ class Wallet extends React.Component {
     // const beforeEmail = <p>Some daqui seu engraçadinho.</p>;
     const afterEmail = (
       <div>
-        {/* <p>Inseriu o e-mail, né!? :D</p> */ }
         <Header />
         <Form />
       </div>

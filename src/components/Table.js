@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-import { deleteExpense } from '../actions';
+import { deleteExpense, editExpenseAction } from '../actions';
 
 class Table extends React.Component {
   constructor() {
     super();
 
     this.removeExpense = this.removeExpense.bind(this);
+    this.dispatchId = this.dispatchId.bind(this);
   }
 
   removeExpense({ target }) {
@@ -16,6 +17,11 @@ class Table extends React.Component {
       (e) => e.id !== Number(target.id),
     );
     deleteExpenseDispatch(filteredExpenses);
+  }
+
+  dispatchId({ target }) {
+    const { editExpenseDispatch } = this.props;
+    editExpenseDispatch(Number(target.id));
   }
 
   render() {
@@ -67,7 +73,13 @@ class Table extends React.Component {
                   <td>{ getConvertion.toFixed(2) }</td>
                   <td>Real</td>
                   <td>
-                    <button type="button">
+                    <button
+                      type="button"
+                      id={ row.id }
+                      data-testid="edit-btn"
+                      disabled={ expensesState.isEditingExpense }
+                      onClick={ this.dispatchId }
+                    >
                       Editar
                     </button>
                     <button
@@ -95,11 +107,13 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   deleteExpenseDispatch: (expense) => dispatch(deleteExpense(expense)),
+  editExpenseDispatch: (id) => dispatch(editExpenseAction(id)),
 });
 
 Table.propTypes = {
   expensesState: propTypes.shape().isRequired,
   deleteExpenseDispatch: propTypes.func.isRequired,
+  editExpenseDispatch: propTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
